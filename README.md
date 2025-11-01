@@ -16,17 +16,24 @@ Building on LLMs does not require Machine Learning experience, but rather an und
   - [RAG Modeling](#rag-modeling)
   - [Vector Databases](#vector-databases)
     - [Popular Vector Databases](#popular-vector-databases)
-  - [Agents](#agents)
+  - [AI Agents](#ai-agents)
     - [Popular Agents](#popular-agents)
     - [How an Agent is different from an LLM](#how-an-agent-is-different-from-an-llm)
     - [Context Injection](#context-injection)
-    - [MCP Servers](#mcp-servers)
-- [Important Understandings](#important-understandings)
+  - [MCP Servers & MCP Clients](#mcp-servers--mcp-clients)
+    - [Developing an MCP Server](#developing-an-mcp-server)
+  - [Important Agent Modeling Concepts](#important-agent-modeling-concepts)
+    - [Natural Language Understanding (NLU)](#natural-language-understanding-nlu)
+    - [Context Engineering](#context-engineering)
+    - [Prompt Engineering](#prompt-engineering)
+    - [Task Orchestration](#task-orchestration)
+- [Important LLM Understandings](#important-llm-understandings)
   - [LLMs Predict](#llms-predict)
   - [LLM Context Determines Agent Effectiveness](#llm-context-determines-agent-effectiveness)
   - [LLMs are Trained on Past Data](#llms-are-trained-on-past-data)
   - [LLMs are Fundamentally Stateless](#llms-are-fundamentally-stateless)
   - [LLMs Context has Limits](#llms-context-has-limits)
+  - [LLMs Present Major Security/Privacy Concerns](#llms-present-major-securityprivacy-concerns)
 
 # LLM
 
@@ -194,15 +201,62 @@ blah blah blah
 
 This gives the LLM relevant contextual information, and "empowers" it to interact with systems and make better predictions by **injecting** live data and very specific, relevant, contextual information.
 
-### MCP Servers
+>Note: [LangChain](https://github.com/langchain-ai/langchain) is an Open Source AI Agent Development Framework that is a popular choice in empowering the development for these context injection processes.
 
-An Model Context Protocl (MCP) server is a Gateway/Middleware that is utilized to organize and control what is provided to an LLM in regards to tools. It is a programmtic way to control what commands can be triggered by an LLMs response and to control what information is **injected** to the LLM about how to use/trigger them. The MCP Server is also responsible for executing commands that the LLM issues.
+## MCP Servers & MCP Clients
 
-An MCP Server creates a feedback loop between real life applications and the LLM, which makes it a fundamental component of AI Agent development. It empowers the LLM to trigger commands that execute within software systems and to receive the results back!
+Model Context Protocol (MCP) is a programmtic way to control *what* tools an LLM can use and *how* they can use them. 
+ - A MCP Server is responsible for receiving commands from the MCP Client, executing those commands (i.e., invoking the tools), and sending the results back to the client.
+
+ - A MCP Client is responsible for injecting the available tools and commands into the LLM’s context, interpreting when the LLM issues a command intended for the MCP Server, and sending the command to the server on the LLM’s behalf. It also injects the MCP Server’s results back into the LLM's input context for further processing.
+
+>[LlamaIndex](https://github.com/run-llama/llama_index) is a popular open source library that helps developers easily create MCP Client code.
+
+This design creates a feedback loop between real-world applications and the LLM, making it a fundamental component of AI agent development. It empowers the LLM to trigger commands that execute within software systems and receive results in real time! This continuous interaction gives the LLM relevant context to make better *predictions*.
 
 > Note: It is important to recognize that an LLM has absolutely NO IDEA what triggering a command through an MCP server will do except what is provided to it. It makes a **prediction** of what someone would **probably** do given the language context. That is all.
 
-# Important Understandings
+### Developing an MCP Server
+
+MCP Servers utilize the [JSON-RPC 2.0](https://www.jsonrpc.org/specification) specification as its core messaging protocol. From my perspective, this is what I'd use:
+
+MCP Server
+ - [fastapi-mcp](https://github.com/tadata-org/fastapi_mcp)  
+
+MCP Client
+ - [llamaindex](https://github.com/run-llama/llama_index)
+
+## Important Agent Modeling Concepts
+
+To simplify and summarize, an AI Agent:
+1. Intakes a prompt
+2. Parses the prompt for important contextual information
+3. Utilizes the gathered information to:
+   1. Gather long-term relevant contextual information by:
+      1. Triggering commands on the MCP Server
+      2. Querying a Vector Database
+      3. etc.
+4. Injects relevant long-term contextual information to the LLM alongside a new prompt to get a better *prediction*
+5. Loops through until a solution is provided/confirmed by the system
+
+### Natural Language Understanding (NLU)
+
+It is important to correctly interpret a User's input to provide the best contextual information to the Agent. This requires implementation of Machine Learning to better understand the meaning of the input by identifying intents, entities, sentiment, and context. Good NLU enables the Agent to understand user goals and conditions accurately and empowers the entire process.
+
+### Context Engineering
+
+To empower the LLM to make better *predictions*, we need to provide accurate, structured, and simple contextual information to the LLM through a context **injection**. This can include a lot of information, but needs to be condensed down to respect the LLM's token limit.
+
+
+### Prompt Engineering
+
+ This involves properly breaking complex tasks down into sub tasks, setting guardrails, embedding external MCP Server tool invocation instructions, etc. This also involves re-structuring the **prompt** to enable the LLM to make a better *prediction*.
+
+### Task Orchestration
+
+Once we interpret a User's input, the Agent needs to orchestrate the movement and retrieval of contextual data to empower the LLM to complete its goal. There should also be data pipelines that are constantly updating the data sources that provide contextual information for the Agent to access and provide to the LLM.
+
+# Important LLM Understandings
 
 ## LLMs Predict
 
@@ -223,3 +277,7 @@ LLMs do not have long-term memory. They are inherently stateless. Which means an
 ## LLMs Context has Limits
 
 There are limits on the context that can be **injected** into an LLM. This directly immpacts the ability of an LLM to be effective in highly complex environments & situations. This is a key constraint in the current AI Engineering landscape.
+
+## LLMs Present Major Security/Privacy Concerns
+
+LLMs are trained on MASSIVE datasets sourced from the internet AND most LLMs record and store the prompts given to it. This prompt data *can* also be utilized to better train the LLM model, which could expose prompt data inadvertently. Since LLMs change their prediction based upon **context injection**, this exposes a way to maliciously expose sensitive information.
