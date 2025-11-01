@@ -34,6 +34,7 @@ Building on LLMs does not require Machine Learning experience, but rather an und
   - [LLMs are Fundamentally Stateless](#llms-are-fundamentally-stateless)
   - [LLMs Context has Limits](#llms-context-has-limits)
   - [LLMs Present Major Security/Privacy Concerns](#llms-present-major-securityprivacy-concerns)
+- [Further Research](#further-research)
 
 # LLM
 
@@ -284,3 +285,9 @@ There are limits on the context that can be **injected** into an LLM. This direc
 ## LLMs Present Major Security/Privacy Concerns
 
 LLMs are trained on MASSIVE datasets sourced from the internet AND most LLMs record and store the prompts given to it. This prompt data *can* also be utilized to better train the LLM model, which could expose prompt data inadvertently. Since LLMs change their prediction based upon **context injection**, this exposes a way to maliciously expose sensitive information.
+
+# Further Research
+ - [Video - Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI)
+ - [Article - What is Agentic RAG](https://weaviate.io/blog/what-is-agentic-rag)
+ - [Article - Integrating Agentic RAG with MCP Servers: Technical Implementation Guide](https://becomingahacker.org/integrating-agentic-rag-with-mcp-servers-technical-implementation-guide-1aba8fd4e442)
+ - [Article - Top AI Security Risks and How to Address Them](https://blog.barracuda.com/2024/11/20/owasp-top-10-risks-large-language-models-2025-updates)
