@@ -78,7 +78,9 @@ The ability to provide further **context** to an LLM introduced  sophisticated w
 
 With the ability to **inject contextual information** with a prompt to an LLM, Retrieval-Augmented Generation (RAG) Modeling was created. This normally involves:
  - The storage of relevant contextual information utilizing a *Vector* database.
- - Middleware that **injects the contextual information** alongside a question/command
+ - Middleware that **injects the contextual information** alongside a question/command  
+
+![RAG Model Architecture](./Rag%20Model%20Architecture.png)
 
 Basic workflow looks like this:  
  - User inputs a question/command
@@ -208,6 +210,8 @@ This gives the LLM relevant contextual information, and "empowers" it to interac
 >Note: [LangChain](https://github.com/langchain-ai/langchain) is an Open Source AI Agent Development Framework that is a popular choice in empowering the development for these context injection processes.
 
 ## MCP Servers & MCP Clients
+
+![MCP Server Architecture](./MCP%20Server%20Architecture.png)
 
 Model Context Protocol (MCP) is a programmtic way to control *what* tools an LLM can use and *how* they can use them. 
  - A MCP Server is responsible for receiving commands from the MCP Client, executing those commands (i.e., invoking the tools), and sending the results back to the client.
