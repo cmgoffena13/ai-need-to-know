@@ -105,7 +105,8 @@ Prompt:
 
 Output:
 ```
-You're absolutely right! It is incredibly important to get reimbursed for expenses made while on the job. You should contact John in Accounting for any reimbursement requests!
+You're absolutely right! It is incredibly important to get reimbursed for expenses made while on the job. 
+You should contact John in Accounting for any reimbursement requests!
 ```
 
 ## Vector Databases
@@ -172,7 +173,8 @@ The ability to inject contextual information into an LLM allows Agents to provid
 
 Context:
 ```
-You have access to a database, here are the tables: Table1, Table2, ... to see the results of a table, output this format
+You have access to a database, here are the tables: Table1, Table2, ... 
+To see the results of a table, output this format
 
 SELECT
 *
@@ -188,7 +190,8 @@ And then the output is **parsed** by the Agent, an actual query is ran on a data
 
 Context:
 ```
-You have access to a database, here are the tables: Table1, Table2, ... to see the results of a table, output this format
+You have access to a database, here are the tables: Table1, Table2, ... 
+To see the results of a table, output this format
 
 SELECT
 *
@@ -264,7 +267,7 @@ LLMs predict the next token (word) to output based upon statistical relationship
 
 ## LLM Context Determines Agent Effectiveness
 
-An AI Agent is only as good as the context that is injected into the LLM with the prompt. MCP servers help, but only if accurate contextual information is provided in how to correctly utilize the MCP server, what actions have already been tried, etc. This also means if relevant information is not provided, destructive actions could easily occur. 
+An AI Agent is only as good as the context that is injected into the LLM with the prompt. MCP servers help, but only if accurate contextual information is provided in how to correctly utilize the MCP server, what actions have already been tried, etc. This also means if relevant information is not provided, destructive actions or inadequate solutions could easily occur. 
 
 ## LLMs are Trained on Past Data
 
