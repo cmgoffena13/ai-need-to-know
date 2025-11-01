@@ -4,7 +4,7 @@ A doc I created to help organize and simplify this "AI" Boom. The key part of "A
 
 LLMs are built from the work of Data Science/Machine Learning Engineering.
 
-Building on LLMs does not require Machine Learning experience, but rather an understanding of fundamental concepts such as context engineering.
+Building on LLMs does not require Machine Learning experience, but rather an understanding of fundamental concepts detailed below.
 
 ## Table of Contents
 
