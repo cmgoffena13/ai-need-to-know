@@ -21,7 +21,7 @@ Building on LLMs does not require Machine Learning experience, but rather an und
     - [How an Agent is different from an LLM](#how-an-agent-is-different-from-an-llm)
     - [Context Injection](#context-injection)
   - [MCP Servers & MCP Clients](#mcp-servers--mcp-clients)
-    - [Developing an MCP Server](#developing-an-mcp-server)
+    - [Developing a MCP Server](#developing-a-mcp-server)
   - [Important Agent Modeling Concepts](#important-agent-modeling-concepts)
     - [Natural Language Understanding (NLU)](#natural-language-understanding-nlu)
     - [Context Engineering](#context-engineering)
@@ -224,7 +224,7 @@ This design creates a feedback loop between real-world applications and the LLM,
 
 > Note: It is important to recognize that an LLM has absolutely NO IDEA what triggering a command through an MCP server will do except what is provided to it. It makes a **prediction** of what someone would **probably** do given the language context. That is all.
 
-### Developing an MCP Server
+### Developing a MCP Server
 
 MCP Servers utilize the [JSON-RPC 2.0](https://www.jsonrpc.org/specification) specification as its core messaging protocol. From my perspective, this is what I'd use:
 
