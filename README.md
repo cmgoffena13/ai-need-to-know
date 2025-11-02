@@ -245,7 +245,7 @@ To simplify and summarize, an AI Agent:
       2. Querying a Vector Database
       3. etc.
 4. Injects relevant long-term contextual information to the LLM alongside a new prompt to get a better *prediction*
-5. Loops through until a solution is provided/confirmed by the system
+5. Loops through until a solution is provided or confirmed by the system
 
 ### Natural Language Understanding (NLU)
 
