@@ -284,7 +284,7 @@ LLMs do not have long-term memory. They are inherently stateless. Which means an
 
 ## LLMs Context has Limits
 
-There are limits on the context that can be **injected** into an LLM. This directly immpacts the ability of an LLM to be effective in highly complex environments & situations. This is a key constraint in the current AI Engineering landscape.
+There are limits on the context that can be **injected** into an LLM. This directly impacts the ability of an LLM to be effective in highly complex environments & situations. This is a key constraint in the current AI Engineering landscape.
 
 ## LLMs Present Major Security/Privacy Concerns
 
