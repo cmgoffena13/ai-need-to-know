@@ -290,6 +290,8 @@ There are limits on the context that can be **injected** into an LLM. This direc
 
 LLMs are trained on MASSIVE datasets sourced from the internet AND most LLMs record and store the prompts given to it. This prompt data *can* also be utilized to better train the LLM model, which could expose prompt data inadvertently. Since LLMs change their prediction based upon **context injection**, this exposes a way to maliciously expose sensitive information.
 
+> Note: [Ollama](https://github.com/ollama/ollama) helps address a large amount of these concerns by offering the ability to self-host Open Source LLMs.  Think of it like a package manager for Open Source LLMs.
+
 # Further Research
  - [Video - Deep Dive into LLMs like ChatGPT](https://www.youtube.com/watch?v=7xTGNNLPyMI)
  - [Article - What is Agentic RAG](https://weaviate.io/blog/what-is-agentic-rag)
