@@ -282,7 +282,7 @@ Since LLMs are trained on past data, this also incorporates any bias and inaccur
 
 ## LLMs are Fundamentally Stateless
 
-LLMs do not have long-term memory. They are inherently stateless. Which means an LLM **cannot learn** without proper contextual feedback provided to it and that context must provided to it OVER and OVER again to maintain continuity. It's useful to see LLMs as having short-term amnesia. Everytime they wake up for the day you have to remind them where they and why they are there. Every day. Or they cannot pick up where they left off.
+LLMs do not have long-term memory. They are inherently stateless. Which means an LLM **cannot learn** without proper contextual feedback provided to it and that context must provided to it OVER and OVER again to maintain continuity. It's useful to see LLMs as having short-term amnesia. Everytime they wake up for the day you have to remind them where they are and why they are there. Every day. Or they cannot pick up where they left off.
 
 ## LLMs Context has Limits
 
