@@ -72,6 +72,8 @@ This is a really important section. There are **TWO** inputs to an LLM:
 
 The ability to provide further **context** to an LLM introduced  sophisticated ways of interacting with an LLM to help it perform better and to dynamically change its prediction.
 
+>Note: See [LLMs are Fundamentally Stateless](#llms-are-fundamentally-stateless)
+
 # Beyond LLMs
 
 ## RAG Modeling
@@ -280,7 +282,7 @@ Since LLMs are trained on past data, this also incorporates any bias and inaccur
 
 ## LLMs are Fundamentally Stateless
 
-LLMs do not have long-term memory. They are inherently stateless. Which means an LLM **cannot learn** without proper contextual feedback provided to it and that context must provided to it OVER and OVER again to maintain continuity. 
+LLMs do not have long-term memory. They are inherently stateless. Which means an LLM **cannot learn** without proper contextual feedback provided to it and that context must provided to it OVER and OVER again to maintain continuity. It's useful to see LLMs as having short-term amnesia. Everytime they wake up for the day you have to remind them where they and why they are there. Every day. Or they cannot pick up where they left off.
 
 ## LLMs Context has Limits
 
